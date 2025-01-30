@@ -1,4 +1,4 @@
-# Mood-Based Recipe Recommender 🍳
+# Emotion-Based Recipe Recommender 🍳
 
 A web application that suggests recipes based on your current mood, powered by the Spoonacular API. Features a sleek dark mode interface and mobile-responsive design.
 
