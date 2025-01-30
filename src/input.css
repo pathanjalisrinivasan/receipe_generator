@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles */
+@layer components {
+  .mood-btn {
+    @apply flex flex-col items-center justify-center p-4 rounded-lg transition-all duration-300 bg-white dark:bg-gray-800 shadow-md hover:shadow-lg;
+  }
+
+  .mood-btn span {
+    @apply mt-2 font-medium text-gray-800 dark:text-white;
+  }
+
+  .mood-btn i {
+    @apply text-gray-800 dark:text-white;
+  }
+
+  .mood-btn.selected {
+    @apply bg-blue-500 text-white;
+  }
+
+  .mood-btn.selected span,
+  .mood-btn.selected i {
+    @apply text-white;
+  }
+
+  .mood-btn:hover {
+    @apply transform scale-105;
+  }
+} 

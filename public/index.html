@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood Recipes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class'
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+<body class="min-h-screen font-['Poppins'] bg-gray-900">
+    <div class="container mx-auto px-4 py-4 sm:py-8">
+        <button id="theme-toggle" class="fixed top-4 right-4 p-3 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200">
+            <i class="fas fa-sun text-xl text-yellow-500 dark:hidden"></i>
+            <i class="fas fa-moon text-xl text-blue-300 hidden dark:block"></i>
+        </button>
+
+        <h1 class="text-3xl sm:text-5xl font-bold text-center mb-6 sm:mb-8 text-white">What's Your Mood?</h1>
+        
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <button class="mood-btn" data-mood="happy">
+                    <i class="fas fa-smile text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+                    <span>Happy</span>
+                </button>
+                <button class="mood-btn" data-mood="sad">
+                    <i class="fas fa-sad-tear text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+                    <span>Sad</span>
+                </button>
+                <button class="mood-btn" data-mood="tired">
+                    <i class="fas fa-bed text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+                    <span>Tired</span>
+                </button>
+                <button class="mood-btn" data-mood="stressed">
+                    <i class="fas fa-wind text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+                    <span>Stressed</span>
+                </button>
+                <button class="mood-btn" data-mood="romantic">
+                    <i class="fas fa-heart text-xl sm:text-2xl mb-1 sm:mb-2"></i>
+                    <span>Romantic</span>
+                </button>
+            </div>
+
+            <div id="recipe-container" class="hidden transform transition-all duration-300">
+                <div class="bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="recipe-image-container relative h-48 sm:h-64">
+                        <img id="recipe-image" class="w-full h-full object-cover" src="" alt="Recipe">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <h3 id="recipe-name" class="absolute bottom-4 left-4 text-2xl sm:text-3xl font-bold text-white px-2"></h3>
+                    </div>
+                    
+                    <div class="p-4 sm:p-6">
+                        <div class="grid grid-cols-2 sm:flex sm:gap-4 mb-4 sm:mb-6 text-xs sm:text-sm text-gray-300">
+                            <div class="flex items-center mb-2 sm:mb-0">
+                                <i class="fas fa-clock text-blue-500 mr-2"></i>
+                                <span id="recipe-time"></span>
+                            </div>
+                            <div class="flex items-center mb-2 sm:mb-0">
+                                <i class="fas fa-utensils text-green-500 mr-2"></i>
+                                <span id="recipe-cuisine"></span>
+                            </div>
+                            <div class="flex items-center mb-2 sm:mb-0">
+                                <i class="fas fa-fire text-orange-500 mr-2"></i>
+                                <span id="recipe-calories"></span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-purple-500 mr-2"></i>
+                                <span id="recipe-difficulty"></span>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4 sm:space-y-6">
+                            <div>
+                                <h4 class="font-bold text-base sm:text-lg mb-2 text-white">Ingredients</h4>
+                                <p id="recipe-ingredients" class="text-sm sm:text-base text-gray-300"></p>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-bold text-base sm:text-lg mb-2 text-white">Instructions</h4>
+                                <p id="recipe-instructions" class="text-sm sm:text-base text-gray-300"></p>
+                            </div>
+
+                            <button id="new-recipe" class="w-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg font-semibold hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg flex items-center justify-center gap-2 sm:gap-3">
+                                <span class="text-base sm:text-lg">Next Recipe</span>
+                                <i class="fas fa-arrow-right-long text-xl sm:text-2xl animate-pulse"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,165 @@
+/* Base styles */
+.mood-btn {
+    @apply flex flex-col items-center justify-center p-3 sm:p-4 rounded-lg transition-all duration-300 
+           bg-gray-800 shadow-md hover:shadow-lg;
+}
+
+.mood-btn span {
+    @apply mt-1 sm:mt-2 font-medium text-white text-sm sm:text-base;
+}
+
+.mood-btn i {
+    @apply text-white;
+}
+
+.mood-btn.selected {
+    @apply bg-indigo-500 text-white transform scale-105;
+}
+
+.mood-btn.selected span,
+.mood-btn.selected i {
+    @apply text-white;
+}
+
+.mood-btn:hover {
+    @apply transform scale-105 bg-gray-700;
+}
+
+/* Recipe container */
+#recipe-container {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#recipe-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Recipe card */
+.recipe-card {
+    @apply bg-white dark:bg-gray-800 transition-colors duration-300;
+}
+
+.recipe-image-container {
+    transition: height 0.3s ease;
+}
+
+/* Layout */
+.ingredients-list {
+    columns: 2;
+    column-gap: 2rem;
+}
+
+@media (max-width: 640px) {
+    .ingredients-list {
+        columns: 1;
+    }
+}
+
+/* Recipe content */
+#recipe-ingredients,
+#recipe-instructions {
+    @apply leading-relaxed;
+}
+
+/* Responsive text handling */
+@media (max-width: 640px) {
+    #recipe-ingredients,
+    #recipe-instructions {
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
+
+    #recipe-name {
+        font-size: 1.5rem;
+        line-height: 1.25;
+    }
+}
+
+/* Animations */
+@keyframes gentle-pulse {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(4px); }
+}
+
+#new-recipe i {
+    animation: gentle-pulse 1.5s infinite;
+}
+
+/* Loading state */
+.recipe-loading {
+    @apply opacity-50;
+}
+
+/* Smooth transitions */
+.transition-all {
+    @apply transition-all duration-300 ease-in-out;
+}
+
+/* Theme transitions */
+.transition-theme {
+    @apply transition-colors duration-300;
+}
+
+/* Dark mode specific styles */
+.dark body {
+    @apply bg-gray-900;
+}
+
+.dark .bg-white {
+    @apply bg-gray-800;
+}
+
+.dark .text-gray-600 {
+    @apply text-gray-300;
+}
+
+.dark .text-gray-800 {
+    @apply text-white;
+}
+
+/* Theme transition */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+body {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+}
+
+.bg-white {
+    background-color: #2d2d2d !important;
+}
+
+.text-gray-600 {
+    color: #d1d1d1 !important;
+}
+
+.text-gray-800 {
+    color: #ffffff !important;
+}
+
+.mood-btn {
+    background-color: #3d3d3d !important;
+    color: #ffffff;
+}
+
+.mood-btn:hover {
+    background-color: #4d4d4d !important;
+}
+
+.mood-btn.selected {
+    background-color: #6366f1 !important;
+}
+
+#recipe-container {
+    background-color: #2d2d2d;
+}
+
+.recipe-image-container::after {
+    background: linear-gradient(to top, rgba(45, 45, 45, 0.9), transparent);
+} 
